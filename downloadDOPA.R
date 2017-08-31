@@ -1,5 +1,15 @@
 library(RCurl)
 setwd('D:/DOPA')
+
+# O loop abaixo é sobre o código de seção da página do mês. Por exemplo, 1011 é Janeiro/2017: http://www2.portoalegre.rs.gov.br/dopa/default.php?p_secao=1011
+# 115:122		2011 (Somente apartir de maio)
+# 124:135		2012
+# 137:148		2013
+# 150:161		2014
+# 163:174		2015
+# 176:187		2016
+# 1011:1022		2017
+
 for (j in c(115:122, 124:135, 137:148, 150:161, 163:174, 176:187, 1011:1022)) {
 	pag <- readLines(sprintf('http://www2.portoalegre.rs.gov.br/dopa/default.php?p_secao=%d', j))
 	pag <- paste(pag, collapse = '')
